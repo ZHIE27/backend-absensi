@@ -17,7 +17,7 @@ const LoginController = {
         return res.status(401).json({ message: 'Password salah' });
       }
 
-      const token = jwt.sign({ id: user.id, role: user.role, nama: user.nama }, process.env.JWT_SECRET, { expiresIn: '1d' });
+      const token = jwt.sign({ id: user.id, role: user.role, nama: user.nama }, process.env.JWT_SECRET, { expiresIn: '30d' });
       res.json({ token, user });
     } catch (err) {
       res.status(500).json({ message: 'Kesalahan server', error: err });

@@ -16,6 +16,7 @@ const User = {
         SELECT 
           (SELECT COUNT(*) FROM users WHERE role = 'guru') AS total_guru,
           (SELECT COUNT(*) FROM users WHERE role = 'staf') AS total_staf,
+          (SELECT COUNT(*) FROM users WHERE role = 'kepala_sekolah') AS total_kepala_sekolah,
           (SELECT COUNT(*) FROM presensi WHERE tanggal = CURDATE()) AS total_presensi_hari_ini
       `;
       const results = await db.query(sql);
